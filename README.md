@@ -4,3 +4,5 @@ ve složce songs jsou pdf fily jednotlivých písní. Pokud název písničky ob
 Formát jmen:
 * jmeno_jmeno_jmeno.pdf
 * jmeno_jmeno_jmeno.txt (Obsahuje: jméno jméno jméno)
+
+Skript používá PyLateX, takže mít funkční Latex je nutné pro funkci skriptu.
