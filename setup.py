@@ -3,7 +3,15 @@ import sys
 
 from pylatex import *
 from pylatex.base_classes.command import *
+from pylatex.base_classes.containers import *
 from pylatex.utils import *
+
+class multicols(Environment):
+    """A class to wrap LaTeX's multicols environment."""
+
+    packages = [Package('multicol')]
+    escape = False
+    content_separator = "\n"
 
 
 
@@ -58,7 +66,9 @@ def main(argv):
             doc.append(Command('addcontentsline',Arguments('toc','subsection',tit)))
             doc.append(Command('includepdf',NoEscape('./'+d+'/'+s),'scale=1'))
         doc.append(NewPage())
-    doc.append(Command('tableofcontents'))
+
+    with doc.create(multicols(arguments='2')):
+        doc.append(Command('tableofcontents'))
     doc.append(NewPage())
 
 
