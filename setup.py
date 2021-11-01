@@ -64,7 +64,7 @@ def main(argv):
                         tit+=s_nopdf[i].encode().decode(sys.stdin.encoding)
             print(tit)
             doc.append(Command('addcontentsline',Arguments('toc','subsection',tit)))
-            doc.append(Command('includepdf',NoEscape('./'+d+'/'+s),'scale=1'))
+            doc.append(Command('includepdf',NoEscape('./'+d+'/'+s),['scale=1',NoEscape('pages=1-')]))
         doc.append(NewPage())
 
     with doc.create(multicols(arguments='2')):
